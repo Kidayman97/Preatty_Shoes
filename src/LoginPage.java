@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 public class LoginPage extends JFrame {
     public LoginPage() {
         setTitle("Login");
-        setSize(600, 900);
+        setSize(400, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
@@ -19,7 +19,7 @@ public class LoginPage extends JFrame {
         topPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
 
         // Load the logo image
-        ImageIcon logoIcon = new ImageIcon("C:/Users/pc/Pictures/WhatsApp Image 2023-10-16 à 19.58.49_32763ad0.jpg"); // Update with the correct path to your image
+        ImageIcon logoIcon = new ImageIcon("path/to/logo.png"); // Update with the correct path to your image
         JLabel logoLabel = new JLabel(logoIcon);
         logoLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
