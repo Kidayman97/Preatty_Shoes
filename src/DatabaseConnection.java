@@ -37,4 +37,33 @@ public class DatabaseConnection {
         return null; // Return null if login fails
     }
 
+    public static ResultSet getAdminData() throws SQLException {
+        String query = "SELECT * FROM dbo.Fiche_Technique"; // Ensure this query is correct
+        Connection conn = connect();
+        if (conn != null) {
+            try {
+                Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                ResultSet rs = stmt.executeQuery(query);
+                if (!rs.isBeforeFirst()) { // Check if the ResultSet is empty
+                    System.out.println("No admin data found.");
+                } else {
+                    System.out.println("Admin data retrieved successfully.");
+                }
+                return rs;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
+    public ResultSet executeQuery(String query) throws SQLException {
+        Connection conn = connect();
+        if (conn != null) {
+            Statement stmt = conn.createStatement();
+            return stmt.executeQuery(query);
+        }
+        return null;
+    }
+
 }
